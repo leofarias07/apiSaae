@@ -85,26 +85,26 @@
             <li class="header"></li>
             
             <li class="treeview">
-              <a href="#">
+              <a href="vazamentos">
                 <i class="fa fa-laptop"></i>
                 <span>Vazamentos</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="estoque/produto"><i class="fa fa-circle-o"></i> Produtos</a></li>
-                <li><a href="estoque/categoria"><i class="fa fa-circle-o"></i> Categorias</a></li>
+                <li><a href="vazamentos"><i class="fa fa-circle-o"></i> Vazamentos</a></li>
+               
               </ul>
             </li>
             
             <li class="treeview">
-              <a href="#">
+              <a href="faltadeagua">
                 <i class="fa fa-th"></i>
                 <span>Falta de água</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="compras/entrada"><i class="fa fa-circle-o"></i> Entradas</a></li>
-                <li><a href="compras/fornecedor"><i class="fa fa-circle-o"></i> Fornecedores</a></li>
+                <li><a href="faltadeagua"><i class="fa fa-circle-o"></i>Falta de agua</a></li>
+               
               </ul>
             </li>
             <li class="treeview">

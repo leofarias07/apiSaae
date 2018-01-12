@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVazamentoTable extends Migration
+class CreateFaltaDeAguasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,12 @@ class CreateVazamentoTable extends Migration
      */
     public function up()
     {
-        Schema::create('vazamento', function (Blueprint $table) {
-            $table->increments('idvazamento');
+        Schema::create('falta_de_aguas', function (Blueprint $table) {
+            $table->increments('idfalta_de_agua');
             $table->string('endereco');
             $table->string('descricao');
             $table->string('contato');
-            $table->boolean('condicao');
-           
-
-
-
-
+             $table->string('condicao');
             $table->timestamps();
         });
     }
@@ -35,6 +30,6 @@ class CreateVazamentoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vazamento');
+        Schema::dropIfExists('falta_de_aguas');
     }
 }

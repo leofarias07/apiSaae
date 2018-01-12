@@ -16,6 +16,7 @@
 					<th>Endereço</th>
 					<th>Descrição</th>
 					<th>Contato</th>
+					<th>Condição</th>
 
 					<th>Opções</th>
 				</thead>
@@ -24,7 +25,8 @@
 					<td>{{ $vaz->idvazamento}}</td>
 					<td>{{ $vaz->endereco}}</td>
 					<td>{{ $vaz->descricao}}</td>
-					<td>{{ $vaz->contao}}</td>
+					<td>{{ $vaz->contato}}</td>
+					<td>{{ $vaz->condicao}}</td>
 					<td>
 						<a href="{{URL::action('VazamentoController@edit',$vaz->idvazamento)}}"><button class="btn btn-info">Editar</button></a>
                          <a href="" data-target="#modal-delete-{{$vaz->idvazamento}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>
