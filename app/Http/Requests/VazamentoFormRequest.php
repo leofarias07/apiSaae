@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\Request;
+use App\Vazamento;
 
 class VazamentoFormRequest extends FormRequest
 {
@@ -27,6 +29,7 @@ class VazamentoFormRequest extends FormRequest
             'endereco' => 'required' | 'max:250',
              'descricao' => 'max:250',
              'contato' => 'max:100'
+
 
         ];
     }

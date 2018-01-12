@@ -12,6 +12,6 @@ class Vazamento extends Model
         'endereco', 'descricao', 'contato','condicao',
     ];
 
-    protected $guarded[];
+    protected $guarded = [];
 
 }

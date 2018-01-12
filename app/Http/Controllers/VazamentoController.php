@@ -2,9 +2,9 @@
 
 
 namespace App\Http\Controllers;
-use apiSaae\Vazamento;
-use Illuminate\Support\Facedes\Redirect;
-use apiSaae\Http\Resquests\VazamentoFormRequest;
+use App\Vazamento;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Resquests\VazamentoFormRequest;
 use DB;
 
 
@@ -36,8 +36,8 @@ class VazamentoController extends Controller
       public function store(VazamentoFormRequest $request){
     	$vazamento = new Vazamento;
     	$vazamento->endereco=$request->get('endereco');
-    	$vazamento->endereco=$request->get('descricao');
-    	$vazamento->endereco=$request->get('contato');
+    	$vazamento->descricao=$request->get('descricao');
+    	$vazamento->contato=$request->get('contato');
     	$vazamento->condicao=1;
     	$vazamento ->save();
     	return Redirect::to('/vazamentos');
