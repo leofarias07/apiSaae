@@ -15,7 +15,7 @@ class CreateStatusGeralsTable extends Migration
     {
         Schema::create('status_gerals', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('descricao');
+            $table->string('statusgeral');
             $table->timestamps();
         });
     }

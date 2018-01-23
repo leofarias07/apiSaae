@@ -9,7 +9,7 @@ class StatusGeral extends Model
    	protected $table = 'status_gerals';
 	public $primarykey = 'idstatus'
     protected $fillable = [
-        'descricao',
+        'statusgeral',
     ];
 
     protected $guarded = [];

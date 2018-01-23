@@ -1997,7 +1997,7 @@ a:focus {
 .info-box {
   display: block;
   min-height: 90px;
-  background: #fff;
+  background: #d9edf7;
   width: 100%;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
@@ -4726,4 +4726,5 @@ table.text-center th {
   .table-responsive > .table tr td {
     white-space: normal!important;
   }
+
 }

@@ -18,3 +18,4 @@ Route::get('/', function () {
 Route::resource('/vazamentos', 'VazamentoController');
 Route::resource('/faltadeagua', 'FaltaDeAguaController');
 Route::resource('/ligacaoirregular', 'LigacaoIrregularController');
+Route::resource('/home', 'HomeController');

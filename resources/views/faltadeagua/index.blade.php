@@ -2,7 +2,7 @@
 @section('conteudo')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Lista de Falta de Agua <a href="faltadeagua/create"><button class="btn btn-success">Novo</button></a></h3>
+		<h3>Lista de Falta de Agua <a href="faltadeagua/create"></a></h3>
 		@include('faltadeagua.search')
 	</div>
 </div>
@@ -18,7 +18,7 @@
 					<th>Contato</th>
 					<th>Condição</th>
 
-					<th>Opções</th>
+					
 				</thead>
                @foreach ($faltadeaguas as $fal)
 				<tr>
@@ -27,10 +27,7 @@
 					<td>{{ $fal->descricao}}</td>
 					<td>{{ $fal->contato}}</td>
 					<td>{{ $fal->condicao}}</td>
-					<td>
-						<a href="{{URL::action('FaltaDeAguaController@edit',$fal->idfalta_de_agua)}}"><button class="btn btn-info">Editar</button></a>
-                         <a href="" data-target="#modal-delete-{{$fal->idfalta_de_agua}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>
-					</td>
+				
 				</tr>
 				@include('faltadeagua.modal')
 				@endforeach

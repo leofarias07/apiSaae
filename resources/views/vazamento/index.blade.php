@@ -2,7 +2,7 @@
 @section('conteudo')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-		<h3>Lista de Vazamentos <a href="vazamentos/create"><button class="btn btn-success">Novo</button></a></h3>
+		<h3>Lista de Vazamentos <a href="vazamentos/create"></a></h3>
 		@include('vazamento.search')
 	</div>
 </div>
@@ -18,25 +18,22 @@
 					<th>Contato</th>
 					<th>Condição</th>
 
-					<th>Opções</th>
+					
 				</thead>
-               @foreach ($vazamentos as $vaz)
+               @foreach ($vazamento as $vaz)
 				<tr>
 					<td>{{ $vaz->idvazamento}}</td>
 					<td>{{ $vaz->endereco}}</td>
 					<td>{{ $vaz->descricao}}</td>
 					<td>{{ $vaz->contato}}</td>
-					<td>{{ $vaz->condicao}}</td>
-					<td>
-						<a href="{{URL::action('VazamentoController@edit',$vaz->idvazamento)}}"><button class="btn btn-info">Editar</button></a>
-                         <a href="" data-target="#modal-delete-{{$vaz->idvazamento}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>
-					</td>
+					<td>{{ $vaz->statusgeral}}</td>
+				
 				</tr>
 				@include('vazamento.modal')
 				@endforeach
 			</table>
 		</div>
-		{{$vazamentos->render()}}
+		{{$vazamento->render()}}
 	</div>
 </div>
 

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -17,6 +18,10 @@
     <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
     <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
+
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ 
+
 
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
@@ -83,6 +88,18 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header"></li>
+
+               <li class="treeview">
+              <a href="home">
+                <i class="fa fa-home"></i>
+                <span>Home</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="home"><i class="fa fa-circle-o"></i>Home</a></li>
+               
+              </ul>
+            </li>
             
             <li class="treeview">
               <a href="vazamentos">
@@ -110,12 +127,12 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-shopping-cart"></i>
-                <span>Fraude</span>
+                <span>Ligações Irregulares</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="vendas/venda"><i class="fa fa-circle-o"></i> Vendas</a></li>
-                <li><a href="vendas/cliente"><i class="fa fa-circle-o"></i> Clientes</a></li>
+                <li><a href="ligacaoirregular"><i class="fa fa-circle-o"></i>Ligação Irregular</a></li>
+               
               </ul>
             </li>
                        
