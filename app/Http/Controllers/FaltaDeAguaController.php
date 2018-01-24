@@ -15,7 +15,7 @@ class FaltaDeAguaController extends Controller
     }
 
     public function index(Request $request){
-    	if ($request) {
+    	/*if ($request) {
     		$query=trim($request->get('searchText'));
     		$faltadeaguas = DB::table('falta_de_aguas')
     		->where('endereco','LIKE', '%'.$query.'%')
@@ -25,7 +25,21 @@ class FaltaDeAguaController extends Controller
     		return view('faltadeagua.index',[
     			"faltadeaguas"=>$faltadeaguas,"searchText"=>$query
     		]);
-    	}
+    	}*/
+
+          if($request){
+            $query=trim($request->get('searchText'));
+        $faltadeaguas = DB::table('falta_de_aguas')
+            ->where('endereco', 'LIKE', '%'.$query.'%')
+            ->join('status_gerals', 'status_gerals.id', '=', 'falta_de_aguas.condicao')
+            ->select('falta_de_aguas.idfalta_de_agua', 'falta_de_aguas.endereco', 'falta_de_aguas.descricao', 'falta_de_aguas.contato','falta_de_aguas.created_at','status_gerals.statusgeral')
+            ->orderBy('idfalta_de_agua', 'desc')
+            ->paginate(15);
+          
+            return view('faltadeagua.index', [
+                "faltadeaguas"=>$faltadeaguas, "searchText"=>$query
+                ]);
+        }
     }
       public function create(){
     	return view("faltadeagua.create");

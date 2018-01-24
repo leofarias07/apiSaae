@@ -36,9 +36,9 @@ class VazamentoController extends Controller
         $vazamento = DB::table('vazamento')
             ->where('endereco', 'LIKE', '%'.$query.'%')
             ->join('status_gerals', 'status_gerals.id', '=', 'vazamento.condicao')
-            ->select('vazamento.idvazamento', 'vazamento.endereco', 'vazamento.descricao', 'vazamento.contato','status_gerals.statusgeral')
+            ->select('vazamento.idvazamento', 'vazamento.endereco', 'vazamento.descricao', 'vazamento.contato','vazamento.created_at','status_gerals.statusgeral')
             ->orderBy('idvazamento', 'desc')
-            ->paginate(7);
+            ->paginate(15);
           
             return view('vazamento.index', [
                 "vazamento"=>$vazamento, "searchText"=>$query

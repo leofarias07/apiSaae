@@ -15,6 +15,7 @@
 					<th>Id</th>
 					<th>Endereço</th>
 					<th>Descrição</th>
+					<th>Data</th>
 					<th>Condição</th>
 
 				
@@ -25,7 +26,13 @@
 					<td>{{ $lig->endereco}}</td>
 					<td>{{ $lig->descricao}}</td>
 					
-					<td>{{ $lig->statusgeral}}</td>
+					<td>{{ date( 'd/m/Y' , strtotime($lig->created_at))}}</td>
+				
+					@if ($lig->statusgeral == "Em Aberto")
+					<td><span class="label label-danger">{{ $lig->statusgeral}}</span></td>
+					@else
+					<td><span class="label label-success">{{ $lig->statusgeral}}</span></td>
+					@endif
 				
 				</tr>
 				@include('ligacaoirregular.modal')

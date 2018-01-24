@@ -16,6 +16,7 @@
 					<th>Endereço</th>
 					<th>Descrição</th>
 					<th>Contato</th>
+					<th>Data</th>
 					<th>Condição</th>
 
 					
@@ -26,7 +27,14 @@
 					<td>{{ $fal->endereco}}</td>
 					<td>{{ $fal->descricao}}</td>
 					<td>{{ $fal->contato}}</td>
-					<td>{{ $fal->condicao}}</td>
+				
+					<td>{{ date( 'd/m/Y' , strtotime($fal->created_at))}}</td>
+				
+					@if ($fal->statusgeral == "Em Aberto")
+					<td><span class="label label-danger">{{ $fal->statusgeral}}</span></td>
+					@else
+					<td><span class="label label-success">{{ $fal->statusgeral}}</span></td>
+					@endif
 				
 				</tr>
 				@include('faltadeagua.modal')

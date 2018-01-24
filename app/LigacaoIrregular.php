@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class LigacaoIrregular extends Model
 {
-   	protected $table = 'ligacao_irregularsEsconder';
+   	protected $table = 'ligacao_irregulars';
 	public $primarykey = 'id';
     protected $fillable = [
         'endereco', 'descricao','condicao',

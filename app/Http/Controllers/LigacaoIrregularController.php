@@ -33,7 +33,7 @@ class LigacaoIrregularController extends Controller
         $ligacao_irregular = DB::table('ligacao_irregulars')
             ->where('endereco', 'LIKE', '%'.$query.'%')
             ->join('status_gerals', 'status_gerals.id', '=', 'ligacao_irregulars.condicao')
-            ->select('ligacao_irregulars.id', 'ligacao_irregulars.endereco', 'ligacao_irregulars.descricao','status_gerals.statusgeral')
+            ->select('ligacao_irregulars.id', 'ligacao_irregulars.endereco', 'ligacao_irregulars.descricao','ligacao_irregulars.created_at','status_gerals.statusgeral')
             ->orderBy('id', 'desc')
             ->paginate(7);
           

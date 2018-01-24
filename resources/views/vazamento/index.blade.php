@@ -16,6 +16,7 @@
 					<th>Endereço</th>
 					<th>Descrição</th>
 					<th>Contato</th>
+					<th>Data</th>
 					<th>Condição</th>
 
 					
@@ -26,8 +27,13 @@
 					<td>{{ $vaz->endereco}}</td>
 					<td>{{ $vaz->descricao}}</td>
 					<td>{{ $vaz->contato}}</td>
-					<td>{{ $vaz->statusgeral}}</td>
+					<td>{{ date( 'd/m/Y' , strtotime($vaz->created_at))}}</td>
 				
+					@if ($vaz->statusgeral == "Em Aberto")
+					<td><span class="label label-danger">{{ $vaz->statusgeral}}</span></td>
+					@else
+					<td><span class="label label-success">{{ $vaz->statusgeral}}</span></td>
+					@endif
 				</tr>
 				@include('vazamento.modal')
 				@endforeach
@@ -36,5 +42,7 @@
 		{{$vazamento->render()}}
 	</div>
 </div>
+
+
 
 @stop
