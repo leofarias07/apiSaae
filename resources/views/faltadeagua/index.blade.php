@@ -1,6 +1,14 @@
-@extends('layouts.admin')
-@section('conteudo')
-<div class="row">
+
+@extends('adminlte::page')
+
+@section('title', 'AdminLTE')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
+
+@section('content')
+    <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 		<h3>Lista de Falta de Agua <a href="faltadeagua/create"></a></h3>
 		@include('faltadeagua.search')
@@ -44,5 +52,4 @@
 		{{$faltadeaguas->render()}}
 	</div>
 </div>
-
 @stop

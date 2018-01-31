@@ -12,6 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(LigacaoIrregularTableSeeder::class);
+        $this->call(FaltaDeAguaTableSeeder::class);
     }
 }

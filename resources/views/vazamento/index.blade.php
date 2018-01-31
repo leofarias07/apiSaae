@@ -1,6 +1,13 @@
-@extends('layouts.admin')
-@section('conteudo')
-<div class="row">
+@extends('adminlte::page')
+
+@section('title', 'AdminLTE')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
+
+@section('content')
+    <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 		<h3>Lista de Vazamentos <a href="vazamentos/create"></a></h3>
 		@include('vazamento.search')
@@ -23,7 +30,7 @@
 				</thead>
                @foreach ($vazamento as $vaz)
 				<tr>
-					<td>{{ $vaz->idvazamento}}</td>
+					<td>{{ $vaz->id}}</td>
 					<td>{{ $vaz->endereco}}</td>
 					<td>{{ $vaz->descricao}}</td>
 					<td>{{ $vaz->contato}}</td>
@@ -42,7 +49,11 @@
 		{{$vazamento->render()}}
 	</div>
 </div>
-
-
-
 @stop
+
+
+
+
+
+
+

@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Vazamento extends Model
 {
 	protected $table = 'vazamento';
-	public $primarykey = 'idvazamento';
+	public $primarykey = 'id';
     protected $fillable = [
-        'endereco', 'descricao', 'contato','condicao',
+        'endereco','descricao','contato','condicao',
     ];
 
     protected $guarded = [];

@@ -1,12 +1,20 @@
-@extends('layouts.admin')
-@section('conteudo')
+
+@extends('adminlte::page')
+
+@section('title', 'AdminLTE')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
+
+@section('content')
 <div class="row">
 
 </div>
 
 
 
-	<div class="row">
+  <div class="row">
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box">
            @foreach ($vazamento as $vaz)
@@ -80,13 +88,53 @@
 
 
 
-	</div>
+  </div>
 
     <div class="row">
         <div class="col-sm-6 text-center">
             <div class="thumbnail">
 
-              <script type="text/javascript">
+
+       
+
+             <div id="piechart" style="width: 450px; height: 300px;"></div>
+         
+            </div>
+        </div>
+
+        <div class="col-sm-6 text-center">
+            <div class="thumbnail">
+         
+            <div id="chart_div" style="width: 450px; height: 300px;"></div>
+            </div>
+        </div>
+
+    </div>
+@stop
+
+
+@section('js')
+      <script type="text/javascript">
+              google.charts.load("current", {packages:["corechart"]});
+              google.charts.setOnLoadCallback(drawChart);
+              function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                  ['Dinosaur', 'Length'],
+                  ['Ligações Irregulares', {{ $vaz->totallig}}],
+                  ['Numero de Vazamentos', {{ $vaz->totalvaz}}],
+                  ['Falta de Agua', {{ $vaz->totalfal}}]]);
+
+                var options = {
+                  title: 'Nivel reclamações',
+                  legend: { position: 'left' },
+                };
+
+                var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+                chart.draw(data, options);
+              }
+      </script>
+
+             <script type="text/javascript">
               google.charts.load('current', {'packages':['corechart']});
               google.charts.setOnLoadCallback(drawChart);
 
@@ -112,42 +160,15 @@
                 chart.draw(data, options);
               }
             </script>
-
-             <div id="piechart" style="width: 450px; height: 300px;"></div>
-         
-            </div>
-        </div>
-
-        <div class="col-sm-6 text-center">
-            <div class="thumbnail">
-            <script type="text/javascript">
-              google.charts.load("current", {packages:["corechart"]});
-              google.charts.setOnLoadCallback(drawChart);
-              function drawChart() {
-                var data = google.visualization.arrayToDataTable([
-                  ['Dinosaur', 'Length'],
-                  ['Ligações Irregulares', {{ $vaz->totallig}}],
-                  ['Numero de Vazamentos', {{ $vaz->totalvaz}}],
-                  ['Falta de Agua', {{ $vaz->totalfal}}]]);
-
-                var options = {
-                  title: 'Nivel reclamações',
-                  legend: { position: 'left' },
-                };
-
-                var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
-                chart.draw(data, options);
-              }
-            </script>
-            <div id="chart_div" style="width: 450px; height: 300px;"></div>
-            </div>
-        </div>
-
-    </div>
-
-    
-
-	
-
-
 @stop
+
+
+
+
+
+
+
+
+
+
+

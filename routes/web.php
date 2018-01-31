@@ -12,10 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('vendor/adminlte/login');
 });
 
 Route::resource('/vazamentos', 'VazamentoController');
 Route::resource('/faltadeagua', 'FaltaDeAguaController');
 Route::resource('/ligacaoirregular', 'LigacaoIrregularController');
 Route::resource('/home', 'HomeController');
+
+Auth::routes();
+
+
+
+

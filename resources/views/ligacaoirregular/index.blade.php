@@ -1,5 +1,14 @@
-@extends('layouts.admin')
-@section('conteudo')
+
+
+@extends('adminlte::page')
+
+@section('title', 'AdminLTE')
+
+@section('content_header')
+    <h1>Dashboard</h1>
+@stop
+
+@section('content')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 		<h3>Ligações Irregulares<a href="ligtadeagua/create"></a></h3>
@@ -42,5 +51,4 @@
 		{{$ligacao_irregular->render()}}
 	</div>
 </div>
-
 @stop

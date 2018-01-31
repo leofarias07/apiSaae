@@ -18,7 +18,9 @@ class VazamentoController extends Controller
     }
 
     public function index(Request $request){
-    
+        
+        //return response()->json(Vazamento::all());
+
         /*if($request){
             $query=trim($request->get('searchText'));
             $vazamento=DB::table('vazamento')
@@ -36,8 +38,8 @@ class VazamentoController extends Controller
         $vazamento = DB::table('vazamento')
             ->where('endereco', 'LIKE', '%'.$query.'%')
             ->join('status_gerals', 'status_gerals.id', '=', 'vazamento.condicao')
-            ->select('vazamento.idvazamento', 'vazamento.endereco', 'vazamento.descricao', 'vazamento.contato','vazamento.created_at','status_gerals.statusgeral')
-            ->orderBy('idvazamento', 'desc')
+            ->select('vazamento.id', 'vazamento.endereco', 'vazamento.descricao', 'vazamento.contato','vazamento.created_at','status_gerals.statusgeral')
+            ->orderBy('id', 'desc')
             ->paginate(15);
           
             return view('vazamento.index', [
@@ -47,49 +49,35 @@ class VazamentoController extends Controller
       
             
     }
+     public function show($id){
+         $vazamento = Vazamento::findOrFail($id);
+        return response()->json($vazamento);
+    }
 
-        public function create(Request $request) {
+
+        public function store(Request $request){
+
+        $vazamento = Vazamento::create($request->all());
+        return response()->json($vazamento);    
+      
+    }
+   
+
 
    
-        Vazamento::create($request->all());
-
-
-//        $usuario = Usuario::first();
-//        
-//        $teste = $request->all();
-//        $teste = $teste['perfis'][0];
-//        $perfil = $usuario->perfils()->save($teste);
-////// or
-////        $book = $user->books()->create(['title' => 'A Game of Thrones'])
-
-        return Vazamento::first();
-    }
-      public function store(Request $request){
-    	/*$vazamento = new Vazamento;
-    	$vazamento->endereco=$request->get('endereco');
-    	$vazamento->descricao=$request->get('descricao');
-    	$vazamento->contato=$request->get('contato');
-    	$vazamento->condicao=1;
-    	$vazamento ->save();
-    	return Redirect::to('/vazamentos');*/
-	}
-
-    public function show($id){
-    	//return view("vazamentos.show",["vazamento"=>Vazamento::FinfORFail($id)]);
-    }
     public function edit(){
     	//return view("vazamentos.edit",["vazamento"=>Vazamento::FinfORFail($id)]);
     }
-    public function update(){
-    	/*$vazamento = Vazamento::findOrFail($id);
-    	$vazamento->endereco=$request->get('endereco');
-    	$vazamento->endereco=$request->get('descricao');
-    	$vazamento->endereco=$request->get('contato');
-    	$vazamento->update();
-    	return Redirect::to('/vazamentos');*/
+    public function update(Request $request, $id){
+        $vazamento = Vazamento::findOrFail($id);
+        $vazamento->fill($request->all());
+        return response()->json($vazamento);
 
     }
     public function destroy($id){
+         $vazamento = Vazamento::findOrFail($id);
+        $vazamento->delete();
+        return response()->json(['message'=>'Removido com sucesso']);
     	/*$vazamento = Vazamento::findOrFail($id);
     	$vazamento->condicao='0';
     	$vazamento->update();
